@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - Imprime el alfabeto en minusculas y luegi en mayusculas, seguido de una nueva linea.
+ * main - Imprime el alfabeto en minusculas y luegi en mayusculas,
+ * seguido de una nueva linea.
  *
  * Return: Siempre 0
  */
