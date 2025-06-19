@@ -5,3 +5,4 @@
 4-print_alphabt.c: program that prints the alphabet in lowercase, followed by a new line. Print all the letters except q and e
 5-print_numbers.c: program that prints all single digit numbers of base 10 starting from 0, followed by a new line
 6-print_numberz.c : program that prints all single digit numbers of base 10 starting from 0, followed by a new line. Not allwed to use any variable of type char. Only use the putchar function
+7-print_tebahpla.c: program that prints the lowercase alphabet in reverse, followed by a new line. Only use putchar function and only twice.
