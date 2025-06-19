@@ -7,3 +7,4 @@
 6-print_numberz.c : program that prints all single digit numbers of base 10 starting from 0, followed by a new line. Not allwed to use any variable of type char. Only use the putchar function
 7-print_tebahpla.c: program that prints the lowercase alphabet in reverse, followed by a new line. Only use putchar function and only twice.
 8-print_base16.c: program that prints all the numbers of base 16 in lowercas, followed by a new line. Only use putchar function and three times. 
+9-print_comb.c: program that prints all possible combinations of single-digit numbers. Numbers must be separated by ',', followed by a space. Numbers should be printed in ascending order. Only use putchar and four times maximum
