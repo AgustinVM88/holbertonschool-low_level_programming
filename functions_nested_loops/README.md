@@ -8,3 +8,4 @@ Write a function that prints 10 times the alphabet, in lowercase, followed by a 
 6-abs.c: function that computes the absolute value of an integer. Prototype: int _abs(int).
 7-print_last_digit.c: function that prints the last digit of a number. Prototype: int print_last_digit(int). Returns the value of the last digit
 8-24_hours.c: function that prints every minute of the day of Jack Bauer, starting from 00:00 to 23:59. Prototype: void jack_bauer(void).
+9-times_table.c: function that prints the 9 times table, starting with 0. Prototype: void times_table(void)
