@@ -10,7 +10,8 @@
  */
 int _atoi(char *s)
 {
-	int x = 0, sign = 1, result = 0, found_digit = 0;
+	int x = 0, sign = 1, found_digit = 0;
+	unsigned int result = 0;
 
 	while (s[x] != '\0')
 	{
@@ -30,5 +31,7 @@ int _atoi(char *s)
 			break;
 		x++;
 	}
-	return (sign * result);
+	if (sign == -1)
+		return ((int) -result);/*Aplica signo negativo*/
+	return ((int) result);/*Devuelve como positivo*/
 }
