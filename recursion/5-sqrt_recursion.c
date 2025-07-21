@@ -19,7 +19,7 @@ int _sqrt_helper(int n, int i)
 
 /**
  * _sqrt_recursion - Returns the natural square root of a number
- * 
+ *
  * @n: int number
  *
  * Return: square root or -1 if it does not exist
