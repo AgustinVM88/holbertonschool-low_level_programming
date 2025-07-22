@@ -1,4 +1,4 @@
-#include "main.h"
+#include "dog.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,10 +9,9 @@
  */
 int main(void)
 {
-	char *concat;
+	struct dog my_dog;
 
-	concat = string_nconcat("Best ", "School !!!", 6);
-	printf("%s\n", concat);
-	free(concat);
+	init_dog(&my_dog, "Poppy", 3.5, "Bob");
+	printf("My name is %s, and I am %.1f :) - Woof!\n", my_dog.name, my_dog.age);
 	return (0);
 }

@@ -17,4 +17,7 @@ struct dog
 	char *owner;
 };
 
+/* Prototipo de la duncion init_dog */
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
 #endif /* DOG_H */
