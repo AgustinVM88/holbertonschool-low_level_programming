@@ -1,7 +1,7 @@
-#include "main.h"
+#include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
+#include <string.h>
 
 /**
  * main - check the code
@@ -10,22 +10,31 @@
  */
 int main(void)
 {
-	    char *c;
-	        int *i;
-		    float *f;
-		        double *d;
+	list_t *head;
+    list_t *new;
+    list_t hello = {"World", 5, NULL};
+    size_t n;
 
-			    c = malloc_checked(sizeof(char) * 1024);
-			        printf("%p\n", (void *)c);
-				    i = malloc_checked(sizeof(int) * 402);
-				        printf("%p\n", (void *)i);
-					    f = malloc_checked(sizeof(float) * 100000000);
-					        printf("%p\n", (void *)f);
-						    d = malloc_checked(INT_MAX);
-						        printf("%p\n", (void *)d);
-							    free(c);
-							        free(i);
-								    free(f);
-								        free(d);
-									    return (0);
+    head = &hello;
+    new = malloc(sizeof(list_t));
+    if (new == NULL)
+    {
+        printf("Error\n");
+        return (1);
+    }
+    new->str = strdup("Hello");
+    new->len = 5;
+    new->next = head;
+    head = new;
+    n = print_list(head);
+    printf("-> %lu elements\n", n);
+
+    printf("\n");
+    free(new->str);
+    new->str = NULL;
+    n = print_list(head);
+    printf("-> %lu elements\n", n);
+
+    free(new);
+	return (0);
 }
