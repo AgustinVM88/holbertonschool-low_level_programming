@@ -9,15 +9,10 @@
  */
 int main(void)
 {
-	char *s;
+	char *concat;
 
-	s = _strdup("Duplicated");
-	if (s == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	printf("%s\n", s);
-	free(s);
+	concat = string_nconcat("Best ", "School !!!", 6);
+	printf("%s\n", concat);
+	free(concat);
 	return (0);
 }
