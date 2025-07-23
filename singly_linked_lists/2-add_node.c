@@ -3,6 +3,22 @@
 #include "lists.h"
 
 /**
+ * _strlen - Calculate the length of a chain
+ *
+ * @s: String to measure
+ *
+ * Return: String length
+ */
+unsigned int _strlen(const char *s)
+{
+	unsigned int x = 0;
+
+	while (s[x] != '\0')
+		x++;
+	return (x);
+}
+
+/**
  * add_node - function that adds a new node at the beginning of a list_t list.
  *
  * @head: Double pointer to the first node in the list
@@ -29,7 +45,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	new_node->len = strlen(str);
+	new_node->len = _strlen(str);
 	new_node->next = *head;
 	*head = new_node;
 
