@@ -1,36 +1,7 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-/**
- *  * simple_print_buffer - prints buffer in hexa
- *   * @buffer: the address of memory to print
- *    * @size: the size of the memory to print
- *     *
- *      * Return: Nothing.
- *       */
-void simple_print_buffer(char *buffer, unsigned int size)
-{
-	    unsigned int i;
-
-	        i = 0;
-		    while (i < size)
-			        {
-					        if (i % 10)
-							        {
-									            printf(" ");
-										            }
-						        if (!(i % 10) && i)
-								        {
-										            printf("\n");
-											            }
-							        printf("0x%02x", buffer[i]);
-								        i++;
-									    }
-		        printf("\n");
-}
-
+#include <stdio.h>
+#include "lists.h"
 
 /**
  * main - check the code
@@ -39,13 +10,37 @@ void simple_print_buffer(char *buffer, unsigned int size)
  */
 int main(void)
 {
-	char *a;
+    list_t *head;
 
-	    a = _calloc(98, sizeof(char));
-	        strcpy(a, "Best");
-		    strcpy(a + 4, " School! :)\n");
-		        a[97] = '!';
-			    simple_print_buffer(a, 98);
-			        free(a);
-	return (0);
+    head = NULL;
+    add_node(&head, "Alexandro");
+    add_node(&head, "Asaia");
+    add_node(&head, "Augustin");
+    add_node(&head, "Bennett");
+    add_node(&head, "Bilal");
+    add_node(&head, "Chandler");
+    add_node(&head, "Damian");
+    add_node(&head, "Daniel");
+    add_node(&head, "Dora");
+    add_node(&head, "Electra");
+    add_node(&head, "Gloria");
+    add_node(&head, "Joe");
+    add_node(&head, "John");
+    add_node(&head, "John");
+    add_node(&head, "Josquin");
+    add_node(&head, "Kris");
+    add_node(&head, "Marine");
+    add_node(&head, "Mason");
+    add_node(&head, "Praylin");
+    add_node(&head, "Rick");
+    add_node(&head, "Rick");
+    add_node(&head, "Rona");
+    add_node(&head, "Siphan");
+    add_node(&head, "Sravanthi");
+    add_node(&head, "Steven");
+    add_node(&head, "Tasneem");
+    add_node(&head, "William");
+    add_node(&head, "Zee");
+    print_list(head);
+    return (0);
 }
