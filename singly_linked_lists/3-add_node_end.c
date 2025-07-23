@@ -19,16 +19,16 @@ unsigned int _strlen(const char *s)
 }
 
 /**
- * add_node - function that adds a new node at the beginning of a list_t list.
+ * add_node_end - function that adds a new node at the end of a list_t list.
  *
  * @head: Double pointer to the first node in the list
  * @str: String to duplicate in the new node
  *
  * Return: Address of the new node, or NULL if it fails
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node;
+	list_t *new_node, *current;
 
 	if (str == NULL)
 		return (NULL);
@@ -47,7 +47,16 @@ list_t *add_node(list_t **head, const char *str)
 
 	new_node->len = _strlen(str);
 	new_node->next = *head;
-	*head = new_node;
+
+	if (*head == NULL)
+		*head = new_node;
+	else
+	{
+		current = *head;
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new_node;
+	}
 
 	return (new_node);
 }

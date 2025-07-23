@@ -1,47 +1,46 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+#include "lists.h"
 
 /**
- *  * simple_print_buffer - prints buffer in hexa
- *   * @buffer: the address of memory to print
- *    * @size: the size of the memory to print
- *     *
- *      * Return: Nothing.
- *       */
-void simple_print_buffer(int *buffer, unsigned int size)
-{
-	    unsigned int i;
-
-	        i = 0;
-		    while (i < size)
-			        {
-					        if (i % 10)
-							        {
-									            printf(" ");
-										            }
-						        if (!(i % 10) && i)
-								        {
-										            printf("\n");
-											            }
-							        printf("0x%02x", buffer[i]);
-								        i++;
-									    }
-		        printf("\n");
-}
-
-/**
- *  * main - check the code
- *   *
- *    * Return: Always 0.
- *     */
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-	    int *a;
+    list_t *head;
 
-	        a = array_range(0, 10);
-		    simple_print_buffer(a, 11);
-		        free(a);
-			    return (0);
+    head = NULL;
+    add_node_end(&head, "Anne");
+    add_node_end(&head, "Colton");
+    add_node_end(&head, "Corbin");
+    add_node_end(&head, "Daniel");
+    add_node_end(&head, "Danton");
+    add_node_end(&head, "David");
+    add_node_end(&head, "Gary");
+    add_node_end(&head, "Holden");
+    add_node_end(&head, "Ian");
+    add_node_end(&head, "Ian");
+    add_node_end(&head, "Jay");
+    add_node_end(&head, "Jennie");
+    add_node_end(&head, "Jimmy");
+    add_node_end(&head, "Justin");
+    add_node_end(&head, "Kalson");
+    add_node_end(&head, "Kina");
+    add_node_end(&head, "Matthew");
+    add_node_end(&head, "Max");
+    add_node_end(&head, "Michael");
+    add_node_end(&head, "Ntuj");
+    add_node_end(&head, "Philip");
+    add_node_end(&head, "Richard");
+    add_node_end(&head, "Samantha");
+    add_node_end(&head, "Stuart");
+    add_node_end(&head, "Swati");
+    add_node_end(&head, "Timothy");
+    add_node_end(&head, "Victor");
+    add_node_end(&head, "Walton");
+    print_list(head);
+    return (0);
 }
