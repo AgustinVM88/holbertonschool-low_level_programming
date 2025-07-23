@@ -28,7 +28,7 @@ unsigned int _strlen(const char *s)
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *current;
+	list_t *new_node, *temp;
 
 	if (str == NULL)
 		return (NULL);
@@ -46,17 +46,19 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 
 	new_node->len = _strlen(str);
-	new_node->next = *head;
+	new_node->next = NULL;
 
 	if (*head == NULL)
-		*head = new_node;
-	else
 	{
-		current = *head;
-		while (current->next != NULL)
-			current = current->next;
-		current->next = new_node;
+		*head = new_node;
+		return (new_node);
 	}
+
+	temp = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	temp->next = new_node;
 
 	return (new_node);
 }
