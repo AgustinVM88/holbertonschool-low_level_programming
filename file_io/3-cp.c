@@ -65,7 +65,11 @@ void copy_file(const char *file_from, const char *file_to)
 		}
 	}
 	if (r == -1)
+	{
+		close_file(fd_from);
+		close_file(fd_to);
 		print_error(98, "Error: Can't read from file", file_from);
+	}
 
 	close_file(fd_from);
 	close_file(fd_to);
