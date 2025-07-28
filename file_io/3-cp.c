@@ -56,7 +56,8 @@ void copy_file(const char *file_from, const char *file_to)
 		print_error(99, "Error: Can't write to", file_to);
 	}
 
-	do {
+	while (1)
+	{
 		r = read(fd_from, buf, BUF_SIZE);
 		if (r == -1)
 		{
@@ -64,21 +65,17 @@ void copy_file(const char *file_from, const char *file_to)
 			close_file(fd_to);
 			print_error(98, "Error: Can't read from file", file_from);
 		}
+		if (r == 0)
+			break;
 
-		if (r > 0)
+		w = write(fd_to, buf, r);
+		if (w == -1 || w != r)
 		{
-			w = write(fd_to, buf, r);
-			if (w == -1 || w != r)
-			{
-				close_file(fd_from);
-				close_file(fd_to);
-				print_error(99, "Error: Can't write to", file_to);
-			}
+			close_file(fd_from);
+			close_file(fd_to);
+			print_error(99, "Error: Can't write to", file_to);
 		}
-	} while (r > 0);
-	
-	close_file(fd_from);
-	close_file(fd_to);
+	}
 }
 
 
