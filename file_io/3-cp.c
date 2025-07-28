@@ -42,7 +42,7 @@ void close_file(int fd)
 void copy_file(const char *file_from, const char *file_to)
 {
 	int fd_from, fd_to;
-	ssize_t r, w;
+	ssize_t r, w, written;
 	char buf[BUF_SIZE];
 
 	fd_from = open(file_from, O_RDONLY);
@@ -56,17 +56,20 @@ void copy_file(const char *file_from, const char *file_to)
 		print_error(99, "Error: Can't write to", file_to);
 	}
 
-	r = read(fd_from, buf, BUF_SIZE);
-	while (r > 0)
+	while ((r = read(fd_from, buf, BUF_SIZE)) > 0)
 	{
-		w = write(fd_to, buf, r);
-		if (w == -1 || w != r)
+		written = 0;
+		while (written < r)
 		{
-			close_file(fd_from);
-			close_file(fd_to);
-			print_error(99, "Error: Can't write to", file_to);
+			w = write(fd_to, buf + written, r - written);
+			if (w == -1)
+			{
+				close_file(fd_from);
+				close_file(fd_to);
+				print_error(99,  "Error: Can't write to", file_to);
+			}
+			written += w;
 		}
-		r = read(fd_from, buf, BUF_SIZE);
 	}
 	if (r == -1)
 	{
@@ -74,7 +77,11 @@ void copy_file(const char *file_from, const char *file_to)
 		close_file(fd_to);
 		print_error(98, "Error: Can't read from file", file_from);
 	}
+
+	close_file(fd_from);
+	close_file(fd_to);
 }
+
 
 /**
  * main - entry point. copies contents of one file into another
