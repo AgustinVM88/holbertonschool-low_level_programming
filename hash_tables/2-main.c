@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "lists.h"
+#include "hash_tables.h"
 
 /**
  * main - check the code
@@ -10,17 +10,18 @@
  */
 int main(void)
 {
-	dlistint_t *head;
+	char *s;
+	unsigned long int hash_table_array_size;
 
-    head = NULL;
-    add_dnodeint(&head, 0);
-    add_dnodeint(&head, 1);
-    add_dnodeint(&head, 2);
-    add_dnodeint(&head, 3);
-    add_dnodeint(&head, 4);
-    add_dnodeint(&head, 98);
-    add_dnodeint(&head, 402);
-    add_dnodeint(&head, 1024);
-    print_dlistint(head);
-    return (EXIT_SUCCESS);
+	hash_table_array_size = 1024;
+	s = "cisfun";
+	printf("%lu\n", hash_djb2((unsigned char *)s));
+	printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+	s = "Don't forget to tweet today";
+	printf("%lu\n", hash_djb2((unsigned char *)s));
+	printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+	s = "98";
+	printf("%lu\n", hash_djb2((unsigned char *)s));
+	printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));  
+	return (EXIT_SUCCESS);
 }
