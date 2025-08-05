@@ -1,30 +1,40 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "lists.h"
+#include "hash_tables.h"
 
 /**
- * main - check the code
- *
- * Return: Always EXIT_SUCCESS.
- */
+ *  * main - check the code
+ *   *
+ *    * Return: Always EXIT_SUCCESS.
+ *     */
 int main(void)
 {
-	dlistint_t *head;
-    int sum;
+	    hash_table_t *ht;
+	        char *key;
+		    char *value;
 
-    head = NULL;
-    add_dnodeint_end(&head, 0);
-    add_dnodeint_end(&head, 1);
-    add_dnodeint_end(&head, 2);
-    add_dnodeint_end(&head, 3);
-    add_dnodeint_end(&head, 4);
-    add_dnodeint_end(&head, 98);
-    add_dnodeint_end(&head, 402);
-    add_dnodeint_end(&head, 1024);
-    sum = sum_dlistint(head);
-    printf("sum = %d\n", sum);
-    free_dlistint(head);
-    head = NULL;
-    return (EXIT_SUCCESS);
+		        ht = hash_table_create(1024);
+			    hash_table_set(ht, "c", "fun");
+			        hash_table_set(ht, "python", "awesome");
+				    hash_table_set(ht, "Bob", "and Kris love asm");
+				        hash_table_set(ht, "N", "queens");
+					    hash_table_set(ht, "Asterix", "Obelix");
+					        hash_table_set(ht, "Betty", "Cool");
+						    hash_table_set(ht, "98", "Battery Streetz");
+						        key = strdup("Tim");
+							    value = strdup("Britton");
+							        hash_table_set(ht, key, value);
+								    key[0] = '\0';
+								        value[0] = '\0';
+									    free(key);
+									        free(value);
+										    hash_table_set(ht, "98", "Battery Street"); 
+										        hash_table_set(ht, "hetairas", "Bob");
+											    hash_table_set(ht, "hetairas", "Bob Z");
+											        hash_table_set(ht, "mentioner", "Bob");
+												    hash_table_set(ht, "hetairas", "Bob Z Chu");
+												        hash_table_print(ht);
+													    hash_table_delete(ht);
+													        return (EXIT_SUCCESS);
 }
